@@ -1,0 +1,12 @@
+{
+  "name": "Groome",
+  "short_name": "Groome",
+  "description": "AI-powered style discovery for people, and digital growth tools for local grooming businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#9333ea",
+  "icons": [
+    { "src": "assets/logo.png", "sizes": "398x398", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

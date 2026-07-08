@@ -182,6 +182,9 @@
     var leaves = document.querySelectorAll('.gsap-leaf');
     if (!section || !leaves.length || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
+    // ONLY initialize GSAP flipbook on desktop
+    if (window.innerWidth <= 900) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
     var numLeaves = leaves.length;

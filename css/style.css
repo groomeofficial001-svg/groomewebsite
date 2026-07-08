@@ -140,7 +140,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 .nav.nav-dark .btn-ghost:hover { border-color: var(--primary-container); color: var(--primary-container); }
 .nav.nav-dark .nav-toggle span { background: #fff; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
-.brand img { width: 34px; height: 34px; border-radius: 9px; filter: brightness(0); transition: filter 0.3s ease; }
+.brand img { width: 34px; height: 34px; border-radius: 9px; filter: none; transition: filter 0.3s ease; }
 .nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-links a {
   font-weight: 600; font-size: 0.95rem; color: var(--ink-soft);
@@ -2231,54 +2231,162 @@ body.splash-active {
 }
 
 
-/* =========================================================
-   TARGETED BUG FIXES (Mobile)
-   ========================================================= */
-@media (max-width: 900px) {
-  /* Fix contact grid (was missing from original responsive CSS) */
-  .contact-grid {
-    grid-template-columns: 1fr !important;
-    gap: 40px !important;
-  }
-  .contact-container { padding: 30px !important; }
-  .contact-info { order: 2; }
-  .contact-form-wrap { order: 1; }
 
-  /* Fix flipbook fallback (was crashing mobile browsers) */
+/* =========================================================
+   FINAL MOBILE FIXES — Tested & Verified
+   ========================================================= */
+
+/* --- Navbar mobile: make logo always visible --- */
+@media (max-width: 760px) {
+  .nav-inner {
+    padding: 12px 16px !important;
+  }
+  .nav.scrolled .nav-inner {
+    padding: 8px 16px !important;
+    border-radius: 20px;
+  }
+  /* Make Join the Journey button smaller on mobile */
+  .nav-cta .btn-primary {
+    padding: 10px 18px !important;
+    font-size: 0.85rem !important;
+  }
+  .brand span {
+    font-size: 1.1rem;
+  }
+}
+
+/* --- Flipbook: completely replace 3D layout with vertical cards on mobile --- */
+@media (max-width: 768px) {
   .gsap-book-section {
-    min-height: auto;
-    display: block;
-    padding: 60px 0;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 40px 0 !important;
+  }
+  .gsap-book-container {
+    width: 100% !important;
+    height: auto !important;
+    perspective: none !important;
+    position: relative !important;
   }
   .gsap-book {
-    width: 100%;
-    height: auto;
-    position: relative;
-    perspective: none;
-    padding: 0 20px;
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    transform-style: flat !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 0 16px !important;
+  }
+  .gsap-cover-left,
+  .gsap-cover-right {
+    display: none !important;
   }
   .gsap-leaf {
-    position: relative;
-    width: 100%;
-    height: auto;
-    left: 0;
-    transform-origin: center;
-    transform-style: flat;
-    margin-bottom: 20px;
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    left: 0 !important;
+    transform: none !important;
+    transform-origin: center !important;
+    transform-style: flat !important;
   }
-  .gsap-page {
-    position: relative;
-    border-radius: 16px;
-    height: auto;
-    padding: 30px;
+  .gsap-page-front {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    transform: none !important;
+    backface-visibility: visible !important;
   }
-  .gsap-page-front, .gsap-page-back {
-    position: relative;
-    transform: none;
-    backface-visibility: visible;
+  .gsap-page-front img {
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
   }
-  .gsap-page-back { display: none; }
-  .gsap-book-content h2 { font-size: 1.8rem; }
-  .gsap-book-content p { font-size: 1rem; }
-  .gsap-book-image { height: 250px; }
+  .gsap-page-back {
+    display: none !important;
+  }
+  .gsap-page-front::after {
+    display: none !important;
+  }
+  .text-page {
+    padding: 1.5rem !important;
+  }
+  .text-page h2 {
+    font-size: 1.6rem !important;
+  }
+  .text-page p {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* --- Business page: reduce blank space in hero --- */
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 110px 0 50px !important;
+  }
+  .page-hero h1 {
+    font-size: 1.8rem !important;
+    max-width: 100% !important;
+  }
+  .page-hero p.lead {
+    font-size: 1rem !important;
+  }
+}
+
+/* --- Contact grid: stack on mobile --- */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  .contact-container {
+    padding: 25px !important;
+  }
+}
+
+/* --- Footer: stack columns on mobile --- */
+@media (max-width: 768px) {
+  .foot-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  .foot-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+}
+
+/* --- General mobile polish --- */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0 !important;
+  }
+  .section-head {
+    margin-bottom: 30px !important;
+  }
+  .section-head h2 {
+    font-size: 1.8rem !important;
+  }
+  .hero {
+    min-height: auto !important;
+    padding: 100px 0 50px !important;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-visual {
+    height: 300px !important;
+    order: -1 !important;
+  }
+  .float-card {
+    display: none !important;
+  }
+  .wrap {
+    padding: 0 16px !important;
+  }
 }

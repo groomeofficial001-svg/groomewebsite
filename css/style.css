@@ -1870,7 +1870,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 
 /* Page content styling */
 .text-page {
-  padding: 4rem 10%;
+  padding: 6rem 15%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2024,7 +2024,6 @@ body.splash-active {
   50% { transform: perspective(400px) rotateY(180deg); }
   100% { transform: perspective(400px) rotateY(360deg); }
 }
-.brand img { filter: none; }
 
 
 /* App Shell & Modal */

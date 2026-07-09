@@ -4,16 +4,23 @@
 (function () {
   'use strict';
 
-  /* ---- Splash Screen (only on first visit per session) ---- */
+  /* ---- Splash Screen ----
+     Show on: first visit from outside + page reload
+     Skip on: internal navigation between pages
+  ---- */
   var splash = document.getElementById('splash-screen');
   var splashLogo = document.querySelector('.splash-logo');
   if (splash && splashLogo && typeof gsap !== 'undefined') {
-    if (sessionStorage.getItem('groome_splash_shown')) {
-      // Already shown this session — hide immediately
+    // Check if navigating from within the same site
+    var referrer = document.referrer;
+    var siteHost = window.location.hostname;
+    var isInternalNav = referrer && (referrer.indexOf(siteHost) !== -1 || (siteHost === '' && referrer.indexOf('file://') !== -1));
+
+    if (isInternalNav) {
+      // Coming from another page on this site — skip splash immediately
       splash.style.display = 'none';
     } else {
-      // First visit — play the animation
-      sessionStorage.setItem('groome_splash_shown', '1');
+      // First visit or reload — show splash animation
       document.body.style.overflow = 'hidden';
       gsap.to(splashLogo, {
         opacity: 1,

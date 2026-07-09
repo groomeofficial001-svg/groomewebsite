@@ -1343,10 +1343,17 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 
 
 @media (max-width: 900px) {
-  .cine-scene { flex-direction: column; gap: 30px; padding: 80px 24px 40px; text-align: center; }
+  .cine-scene { 
+    flex-direction: column; 
+    gap: 40px; 
+    padding: 120px 24px 40px; /* Pushed down a bit so it sits perfectly in viewport */
+    text-align: center; 
+  }
   .cine-content { max-width: 100%; }
-  .cine-visual { width: 220px; height: 200px; }
-  .cine-num { font-size: 3rem; }
+  .cine-num { font-size: 4.5rem; margin-bottom: 12px; }
+  .cine-content h2 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 16px; }
+  .cine-content p { font-size: 1.05rem; line-height: 1.6; color: rgba(255,255,255,0.85); margin: 0 auto; max-width: 340px; }
+  .cine-visual { width: 320px; height: 280px; margin: 0 auto; }
   .cine-final { max-width: 100%; }
 }
 

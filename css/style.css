@@ -2503,13 +2503,26 @@ body.splash-active {
   .hero-stats .num { font-size: 1.3rem !important; }
   .hero-stats .lbl { font-size: 0.75rem !important; }
 
-  /* Compact Team Grid for Mobile */
-  .team-grid { gap: 14px !important; }
-  .member { padding: 18px 16px !important; }
-  .member .ph { width: 72px !important; height: 72px !important; margin: 0 auto 10px !important; border-width: 2px !important; }
-  .member h4 { font-size: 1rem !important; margin-bottom: 2px !important; }
-  .member .role { font-size: 0.8rem !important; margin-bottom: 4px !important; }
-  .member .resp { font-size: 0.75rem !important; }
+  /* Team Grid for Mobile (2-column alignment) */
+  .team-grid { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 12px !important; 
+  }
+  .member { 
+    padding: 10px !important; 
+    border-radius: 12px !important;
+  }
+  .member .ph { 
+    width: 100% !important; 
+    height: auto !important; 
+    aspect-ratio: 4/5 !important;
+    border-radius: 8px !important; 
+    margin: 0 auto 10px !important; 
+    border: none !important; 
+  }
+  .member h4 { font-size: 0.95rem !important; margin-bottom: 2px !important; }
+  .member .role { font-size: 0.75rem !important; margin-bottom: 4px !important; letter-spacing: 0; }
+  .member .resp { font-size: 0.7rem !important; line-height: 1.2 !important; }
 
   /* Compact Community Cards for Mobile */
   .comm-grid { gap: 12px !important; }

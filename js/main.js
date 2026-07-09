@@ -389,52 +389,52 @@
       });
     });
 
-    /* ---- CINEMATIC 3D STORY (journey.html) - AUTOPLAYING ---- */
+    /* ---- CINEMATIC 3D STORY (journey.html) - SCROLL TRIGGERED ---- */
     var cineStory = document.querySelector('.cine-story');
-        if (cineStory) {
+    if (cineStory) {
       var scenes = gsap.utils.toArray('.cine-scene');
       var totalScenes = scenes.length;
       
-            // Auto-playing main scene timeline (like a live video)
-      var tl = gsap.timeline({ repeat: -1 });
+      // Pin the section and tie animation to scroll
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: cineStory,
+          start: "top top",
+          end: "+=" + (totalScenes * 100) + "%", // scroll duration based on number of scenes
+          pin: true,
+          scrub: 1, // smooth scrubbing
+        }
+      });
+
+      // Make first scene visible immediately
+      if (scenes.length > 0) {
+        gsap.set(scenes[0], { opacity: 1, visibility: 'visible' });
+      }
 
       scenes.forEach(function(scene, i) {
         var content = scene.querySelector('.cine-content');
         var visual = scene.querySelector('.cine-visual');
         
-        // Each scene gets 5 seconds total (0.6s fade in, 3.8s hold, 0.6s fade out)
-        var fadeDuration = 0.6;
-        var holdDuration = 3.8;
-        
-        // Scene entrance
-        tl.fromTo(scene, 
-          { opacity: 0, visibility: 'hidden' },
-          { opacity: 1, visibility: 'visible', duration: fadeDuration, ease: 'power2.inOut' }
-        );
-
-        // Content 3D entrance
-        if (content) {
-          tl.fromTo(content,
-            { x: -50, rotateY: 10, opacity: 0 },
-            { x: 0, rotateY: 0, opacity: 1, duration: fadeDuration * 1.5, ease: 'power3.out' },
-            "<"
-          );
+        // Scene entrance (except for first scene which is already visible)
+        if (i > 0) {
+          tl.to(scene, { opacity: 1, visibility: 'visible', duration: 1 });
+          if (content) {
+            tl.fromTo(content, { x: -50, rotateY: 10, opacity: 0 }, { x: 0, rotateY: 0, opacity: 1, duration: 1 }, "<");
+          }
+          if (visual) {
+            tl.fromTo(visual, { x: 50, rotateY: -10, scale: 0.9, opacity: 0 }, { x: 0, rotateY: 0, scale: 1, opacity: 1, duration: 1 }, "<");
+          }
         }
 
-        // Visual 3D entrance
-        if (visual) {
-          tl.fromTo(visual,
-            { x: 50, rotateY: -10, scale: 0.9, opacity: 0 },
-            { x: 0, rotateY: 0, scale: 1, opacity: 1, duration: fadeDuration * 1.5, ease: 'power3.out' },
-            "<0.2"
-          );
+        // Hold scene so user can read it
+        tl.to({}, { duration: 2 });
+
+        // Scene exit (fade out before next scene comes in), except for the last one
+        if (i !== totalScenes - 1) {
+          tl.to(scene, { opacity: 0, visibility: 'hidden', duration: 1 });
+          if (content) tl.to(content, { x: -50, rotateY: -10, opacity: 0, duration: 1 }, "<");
+          if (visual) tl.to(visual, { x: 50, rotateY: 10, scale: 0.9, opacity: 0, duration: 1 }, "<");
         }
-
-        // Hold scene
-        tl.to({}, { duration: holdDuration });
-
-        // Scene exit (fade out before next scene)
-        tl.to(scene, { opacity: 0, visibility: 'hidden', duration: fadeDuration, ease: 'power2.inOut' });
       });
     }
 

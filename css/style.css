@@ -95,7 +95,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
    NAVBAR
    ========================================================= */
 .nav {
-  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  position: absolute; inset: 0 0 auto 0; z-index: 100;
   display: flex; align-items: center; justify-content: center;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   padding-top: 0;
@@ -104,33 +104,32 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
   transform: translateY(-150px);
 }
 .nav.scrolled {
-  padding-top: 20px;
+  padding-top: 0; /* Removed padding change on scroll since it's absolute now */
 }
 .nav-inner {
   width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 16px 24px;
-  display: flex; align-items: center; justify-content: space-between; gap: 20px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid transparent;
-  border-radius: 0;
-  background: transparent;
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  margin-top: 20px;
 }
 .nav.scrolled .nav-inner {
-  width: 96%;
-  max-width: 1140px;
-  padding: 10px 24px;
-  border-radius: 100px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: saturate(200%) blur(24px);
-  -webkit-backdrop-filter: saturate(200%) blur(24px);
-  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.05);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
-
+@media (max-width: 1024px) {
+  .nav-inner {
+    margin-top: 10px;
+    padding: 12px 18px;
+  }
+}
 /* Dark-aware nav: when over a dark section */
 .nav.scrolled.nav-dark .nav-inner {
-  background: rgba(14, 10, 22, 0.75);
-  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(30, 25, 40, 0.7);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border-color: var(--dark-line);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 .nav.nav-dark .nav-links a { color: var(--dark-ink-soft); }
 .nav.nav-dark .nav-links a:hover { color: #fff; background: rgba(147,51,234,0.15); }
@@ -139,12 +138,15 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 .nav.nav-dark .btn-ghost { color: var(--dark-ink); border-color: var(--dark-line); }
 .nav.nav-dark .btn-ghost:hover { border-color: var(--primary-container); color: var(--primary-container); }
 .nav.nav-dark .nav-toggle span { background: #fff; }
+
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
-.brand img { width: 34px; height: 34px; border-radius: 9px; filter: none; transition: filter 0.3s ease; }
+.brand img { width: 48px; height: 48px; border-radius: 12px; filter: none; transition: filter 0.3s ease; }
+.nav .brand span { display: none; } /* Hide Groome text only in navbar */
+
 .nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-links a {
-  font-weight: 600; font-size: 0.95rem; color: var(--ink-soft);
-  padding: 9px 14px; border-radius: 10px; transition: color .2s, background .2s;
+  font-size: 0.94rem; font-weight: 600; color: var(--ink-soft);
+  padding: 8px 16px; border-radius: 100px; transition: .2s;
 }
 .nav-links a:hover { color: var(--primary); background: var(--primary-tint); }
 .nav-cta { display: flex; align-items: center; gap: 10px; }

@@ -196,8 +196,7 @@
     var leaves = document.querySelectorAll('.gsap-leaf');
     if (!section || !leaves.length || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-    // ONLY initialize GSAP flipbook on desktop
-    if (window.innerWidth <= 900) return;
+
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -494,66 +493,3 @@
     }
   }
 })();
-
-
-/* ---- Mobile Story Slider ---- */
-  (function initMobileSlider() {
-    if (window.innerWidth > 900) return;
-
-    var track = document.getElementById('sliderTrack');
-    var dotsContainer = document.getElementById('sliderDots');
-    var prevBtn = document.getElementById('sliderPrev');
-    var nextBtn = document.getElementById('sliderNext');
-
-    if (!track || !dotsContainer || !prevBtn || !nextBtn) return;
-
-    var cards = track.querySelectorAll('.slider-card');
-    var total = cards.length;
-    if (total === 0) return;
-
-    var current = 0;
-
-    // Build dots
-    dotsContainer.innerHTML = '';
-    for (var i = 0; i < total; i++) {
-      var dot = document.createElement('button');
-      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
-      dot.setAttribute('data-index', String(i));
-      dotsContainer.appendChild(dot);
-    }
-
-    function goTo(index) {
-      if (index < 0) index = total - 1;
-      if (index >= total) index = 0;
-      current = index;
-      track.style.transform = 'translateX(-' + (current * 100) + '%)';
-      var allDots = dotsContainer.querySelectorAll('.slider-dot');
-      allDots.forEach(function(d, di) {
-        d.classList.toggle('active', di === current);
-      });
-    }
-
-    prevBtn.addEventListener('click', function() { goTo(current - 1); });
-    nextBtn.addEventListener('click', function() { goTo(current + 1); });
-
-    dotsContainer.addEventListener('click', function(e) {
-      var t = e.target;
-      if (t.classList.contains('slider-dot')) {
-        goTo(parseInt(t.getAttribute('data-index'), 10));
-      }
-    });
-
-    // Touch swipe
-    var tx0 = 0;
-    track.addEventListener('touchstart', function(e) {
-      tx0 = e.changedTouches[0].clientX;
-    }, { passive: true });
-    track.addEventListener('touchend', function(e) {
-      var diff = tx0 - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
-    }, { passive: true });
-
-    goTo(0);
-  })();
-

@@ -2273,10 +2273,30 @@ body.splash-active {
 .timeline-item:hover .timeline-content { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(155, 77, 255, 0.1); border-color: rgba(192, 132, 252, 0.3); }
 
 @media (max-width: 768px) {
-  .timeline-v2 { gap: 0; padding-bottom: 20px; }
-  .timeline-item { min-width: 180px; flex: 0 0 180px; padding: 0 8px; }
-  .timeline-content { padding: 18px 14px; }
-  .timeline-content h3 { font-size: 1.1rem; }
+  .timeline-v2 {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-bottom: 20px;
+  }
+  .timeline-v2::before {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: auto;
+  }
+  .timeline-item {
+    min-width: 100%;
+    flex: 0 0 auto;
+    padding: 0 16px;
+  }
+  .timeline-icon {
+    margin-bottom: 16px;
+  }
+  .timeline-content { padding: 24px 20px; }
+  .timeline-content h3 { font-size: 1.2rem; }
 }
 
 /* ============ SPLASH SCREEN ============ */

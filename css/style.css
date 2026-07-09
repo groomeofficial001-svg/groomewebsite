@@ -143,10 +143,10 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 .brand img { width: 44px; height: 44px; border-radius: 12px; filter: invert(1); transition: filter 0.3s ease; }
 .nav .brand span { display: none; } /* Hide Groome text only in navbar */
 
-.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links { display: flex; align-items: center; gap: 16px; }
 .nav-links a {
-  font-size: 0.94rem; font-weight: 600; color: var(--ink-soft);
-  padding: 8px 16px; border-radius: 100px; transition: .2s;
+  font-size: 1.05rem; font-weight: 600; color: var(--ink-soft);
+  padding: 10px 18px; border-radius: 100px; transition: .2s;
 }
 .nav-links a:hover { color: var(--primary); background: var(--primary-tint); }
 .nav-cta { display: flex; align-items: center; gap: 10px; }

@@ -141,6 +141,9 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
 .brand img { width: 56px; height: 56px; border-radius: 12px; filter: invert(1); transition: filter 0.3s ease; }
+@media (max-width: 860px) {
+  .brand img { width: 36px; height: 36px; border-radius: 8px; }
+}
 .nav .brand span { display: none; } /* Hide Groome text only in navbar */
 
 .nav-links { display: flex; align-items: center; gap: 16px; }

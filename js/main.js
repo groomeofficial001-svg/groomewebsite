@@ -446,26 +446,24 @@
 
 (function() {
   // INITIAL SPLASH SCREEN LOGIC
-  const splash = document.getElementById('initial-splash');
+  var splash = document.getElementById('initial-splash');
   if (splash) {
     document.body.classList.add('splash-active');
-    
-    // We want the splash to show for at least 1.5s so the animation plays
-    let minTimeElapsed = false;
-    setTimeout(() => { 
-        minTimeElapsed = true; 
-        tryHideSplash(); 
+    var minTimeElapsed = false;
+    var loaded = false;
+
+    setTimeout(function() {
+      minTimeElapsed = true;
+      tryHideSplash();
     }, 1500);
-    
-    let loaded = false;
-    window.addEventListener('load', () => { 
-        loaded = true; 
-        tryHideSplash(); 
+
+    window.addEventListener('load', function() {
+      loaded = true;
+      tryHideSplash();
     });
 
-    // In case load already fired
     if (document.readyState === 'complete') {
-        loaded = true;
+      loaded = true;
     }
 
     function tryHideSplash() {
@@ -474,31 +472,31 @@
           gsap.to(splash, {
             opacity: 0,
             duration: 0.8,
-            ease: "power2.inOut",
-            onComplete: () => {
+            ease: 'power2.inOut',
+            onComplete: function() {
               splash.style.display = 'none';
               document.body.classList.remove('splash-active');
               if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
-              
-              // Optional: Animate hero text in after splash
-              gsap.from(".hero-content > *", {
+              gsap.from('.hero-content > *', {
                 y: 30,
                 opacity: 0,
                 duration: 1,
                 stagger: 0.1,
-                ease: "power3.out"
+                ease: 'power3.out'
               });
             }
           });
         } else {
-            // Fallback if GSAP is not loaded
-            splash.style.display = 'none';
-            document.body.classList.remove('splash-active');
+          splash.style.display = 'none';
+          document.body.classList.remove('splash-active');
         }
+      }
     }
   }
+})();
 
-  /* ---- Mobile Story Slider ---- */
+
+/* ---- Mobile Story Slider ---- */
   (function initMobileSlider() {
     if (window.innerWidth > 900) return;
 
@@ -562,5 +560,3 @@
 
     goTo(0);
   })();
-
-})();

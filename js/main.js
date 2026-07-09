@@ -221,14 +221,23 @@
       }
     });
 
+    var isMobile = window.innerWidth <= 900;
+
     // Animate each leaf sequentially
     sortedLeaves.forEach(function(leaf, index) {
       // The flip animation
-      tl.to(leaf, {
-        rotateY: -180,
+      var flipVars = {
         ease: "none",
         duration: 1
-      });
+      };
+      
+      if (isMobile) {
+        flipVars.rotateX = 180;
+      } else {
+        flipVars.rotateY = -180;
+      }
+      
+      tl.to(leaf, flipVars);
       // Swap z-index halfway through the flip so it stacks correctly on the left side
       tl.set(leaf, { zIndex: index + 1 }, "<0.5");
     });

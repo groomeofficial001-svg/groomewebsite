@@ -1926,18 +1926,60 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 /* ======= MOBILE FLIPBOOK SLIDER (≤900px) ======= */
 @media (max-width: 900px) {
   .gsap-book-container {
-    height: 60vh;
+    height: 75vh;
     width: 95vw;
   }
-  .text-page {
-    padding: 1.5rem;
+  .gsap-cover-left, .gsap-cover-right {
+    width: 100% !important;
+    height: 50% !important;
+    left: 0 !important;
   }
-  .text-page h2 {
-    font-size: 1.6rem;
+  .gsap-cover-left {
+    top: 0 !important;
+    border-radius: 12px 12px 0 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
   }
-  .text-page p {
-    font-size: 1rem;
+  .gsap-cover-right {
+    top: 50% !important;
+    border-radius: 0 0 12px 12px !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(255,255,255,0.05) !important;
   }
+  
+  .gsap-leaf {
+    width: 100% !important;
+    height: 50% !important;
+    top: 50% !important;
+    left: 0 !important;
+    transform-origin: top center !important;
+  }
+  
+  .gsap-page-front, .gsap-page-back {
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+  }
+  
+  .gsap-page-front {
+    transform: rotateX(0deg) !important;
+    border-radius: 0 0 12px 12px !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(255,255,255,0.05) !important;
+  }
+  
+  .gsap-page-back {
+    transform: rotateX(180deg) !important;
+    border-radius: 12px 12px 0 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+  }
+  
+  .text-page { padding: 1.5rem !important; justify-content: center !important; }
+  .text-page h2 { font-size: 1.8rem !important; margin-bottom: 0.5rem !important; }
+  .text-page p { font-size: 1.05rem !important; max-width: 100% !important; }
+  .text-page .eyebrow { font-size: 0.8rem !important; }
 }
 
 

@@ -2510,6 +2510,31 @@ body.splash-active {
   .member h4 { font-size: 1rem !important; margin-bottom: 2px !important; }
   .member .role { font-size: 0.8rem !important; margin-bottom: 4px !important; }
   .member .resp { font-size: 0.75rem !important; }
+
+  /* Compact Community Cards for Mobile */
+  .comm-grid { gap: 12px !important; }
+  .comm-card { 
+    padding: 16px !important; 
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 16px;
+    align-items: center;
+  }
+  .comm-card .ico { 
+    grid-row: 1 / span 2;
+    margin-bottom: 0 !important; 
+    width: 44px !important; 
+    height: 44px !important; 
+  }
+  .comm-card h3 { 
+    margin-bottom: 2px !important; 
+    font-size: 1.05rem !important; 
+  }
+  .comm-card p { 
+    font-size: 0.85rem !important; 
+    margin-bottom: 0 !important;
+  }
   .float-card {
     display: none !important;
   }

@@ -2511,17 +2511,19 @@ body.splash-active {
     grid-template-columns: 1fr !important;
   }
   .hero-stage {
-    height: 400px !important;
+    height: 420px !important;
     order: -1 !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 10px !important;
+    margin-top: -20px !important;
+    transform: scale(0.9);
   }
   .hero-pills .pill {
-    transform: scale(0.75) !important;
-    padding: 6px 10px !important;
+    transform: scale(0.8) !important;
+    padding: 6px 12px !important;
   }
-  .pill-1 { top: 10% !important; left: -15% !important; }
-  .pill-2 { top: 46% !important; right: -20% !important; }
-  .pill-3 { bottom: 10% !important; left: -15% !important; }
+  .pill-1 { top: 5% !important; left: -2% !important; z-index: 10; }
+  .pill-2 { top: 40% !important; right: -2% !important; z-index: 10; }
+  .pill-3 { bottom: 5% !important; left: -2% !important; z-index: 10; }
   .hero-stats {
     gap: 16px !important;
     justify-content: space-between !important;

@@ -497,4 +497,78 @@
         }
     }
   }
-} })();
+} 
+
+  /* ---- Mobile Story Slider ---- */
+  (function initMobileSlider() {
+    var slider = document.getElementById('mobileStorySlider');
+    if (!slider) return;
+    // Only run on mobile
+    if (window.innerWidth > 900) return;
+
+    var track = document.getElementById('sliderTrack');
+    var dotsContainer = document.getElementById('sliderDots');
+    var prevBtn = document.getElementById('sliderPrev');
+    var nextBtn = document.getElementById('sliderNext');
+    var cards = track ? track.querySelectorAll('.slider-card') : [];
+    var total = cards.length;
+    var current = 0;
+
+    if (!track || total === 0) return;
+
+    // Build dots
+    for (var i = 0; i < total; i++) {
+      var dot = document.createElement('button');
+      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.setAttribute('data-index', i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function goTo(index) {
+      if (index < 0) index = total - 1;
+      if (index >= total) index = 0;
+      current = index;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      // Update dots
+      var dots = dotsContainer.querySelectorAll('.slider-dot');
+      dots.forEach(function(d, di) {
+        d.classList.toggle('active', di === current);
+      });
+      // Update arrows
+      prevBtn.disabled = false;
+      nextBtn.disabled = false;
+    }
+
+    prevBtn.addEventListener('click', function() { goTo(current - 1); });
+    nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+    // Dot clicks
+    dotsContainer.addEventListener('click', function(e) {
+      if (e.target.classList.contains('slider-dot')) {
+        goTo(parseInt(e.target.getAttribute('data-index')));
+      }
+    });
+
+    // Touch swipe
+    var touchStartX = 0;
+    var touchEndX = 0;
+    track.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].clientX;
+      var diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        goTo(diff > 0 ? current + 1 : current - 1);
+      }
+    }, { passive: true });
+
+    // Auto-advance every 4s
+    var autoTimer = setInterval(function() { goTo(current + 1); }, 4000);
+    slider.addEventListener('touchstart', function() { clearInterval(autoTimer); }, { passive: true });
+
+    goTo(0);
+  })();
+
+})();

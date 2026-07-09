@@ -554,9 +554,6 @@
       if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
     }, { passive: true });
 
-    // Auto-advance every 4s, stop on touch
-    var autoTimer = setInterval(function() { goTo(current + 1); }, 4000);
-    track.addEventListener('touchstart', function() { clearInterval(autoTimer); }, { passive: true });
-
     goTo(0);
   })();
+

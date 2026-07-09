@@ -528,7 +528,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
   .feature-grid { grid-template-columns: 1fr; }
   .feature.big { grid-column: span 1; flex-direction: column; align-items: flex-start; }
   .team-grid { grid-template-columns: 1fr 1fr; }
-  .foot-grid { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
   .section { padding: 70px 0; }
 }
 
@@ -2409,16 +2409,52 @@ body.splash-active {
   }
 }
 
-/* --- Footer: stack columns on mobile --- */
+/* --- Footer: compact on mobile --- */
 @media (max-width: 768px) {
+  .footer {
+    padding: 36px 0 20px !important;
+  }
   .foot-grid {
-    grid-template-columns: 1fr !important;
-    gap: 30px !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px 16px !important;
+  }
+  /* Brand takes full width on top */
+  .foot-brand {
+    grid-column: 1 / -1 !important;
+  }
+  .foot-brand p {
+    font-size: 0.82rem !important;
+    max-width: 100% !important;
+  }
+  .foot-brand .brand {
+    margin-bottom: 8px !important;
+  }
+  .foot-brand .brand span {
+    font-size: 1rem !important;
+  }
+  .foot-col h5 {
+    font-size: 0.72rem !important;
+    margin-bottom: 8px !important;
+  }
+  .foot-col a {
+    font-size: 0.82rem !important;
+    padding: 3px 0 !important;
+  }
+  .socials {
+    margin-top: 10px !important;
+    gap: 8px !important;
+  }
+  .socials a {
+    width: 32px !important;
+    height: 32px !important;
   }
   .foot-bottom {
     flex-direction: column !important;
     text-align: center !important;
-    gap: 12px !important;
+    gap: 6px !important;
+    margin-top: 24px !important;
+    padding-top: 16px !important;
+    font-size: 0.75rem !important;
   }
 }
 

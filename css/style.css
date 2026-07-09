@@ -140,7 +140,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 .nav.nav-dark .nav-toggle span { background: #fff; }
 
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
-.brand img { max-width: 140px; height: 44px; object-fit: contain; transition: opacity 0.3s ease; }
+.brand img { max-width: 140px; height: 44px; object-fit: contain; filter: invert(1); transition: opacity 0.3s ease, filter 0.3s ease; }
 @media (max-width: 860px) {
   .brand img { height: 32px; max-width: 100px; }
 }

@@ -4,34 +4,41 @@
 (function () {
   'use strict';
 
-  /* ---- Splash Screen ---- */
+  /* ---- Splash Screen (only on first visit per session) ---- */
   var splash = document.getElementById('splash-screen');
   var splashLogo = document.querySelector('.splash-logo');
   if (splash && splashLogo && typeof gsap !== 'undefined') {
-    document.body.style.overflow = 'hidden';
-    gsap.to(splashLogo, {
-      opacity: 1,
-      scale: 1,
-      duration: 0.8,
-      ease: "power3.out"
-    });
-    gsap.to(splashLogo, {
-      opacity: 0,
-      scale: 1.1,
-      duration: 0.4,
-      delay: 1.2,
-      ease: "power2.in"
-    });
-    gsap.to(splash, {
-      opacity: 0,
-      duration: 0.6,
-      delay: 1.4,
-      ease: "power2.inOut",
-      onComplete: function() {
-        splash.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-    });
+    if (sessionStorage.getItem('groome_splash_shown')) {
+      // Already shown this session — hide immediately
+      splash.style.display = 'none';
+    } else {
+      // First visit — play the animation
+      sessionStorage.setItem('groome_splash_shown', '1');
+      document.body.style.overflow = 'hidden';
+      gsap.to(splashLogo, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+      gsap.to(splashLogo, {
+        opacity: 0,
+        scale: 1.1,
+        duration: 0.4,
+        delay: 1.2,
+        ease: "power2.in"
+      });
+      gsap.to(splash, {
+        opacity: 0,
+        duration: 0.6,
+        delay: 1.4,
+        ease: "power2.inOut",
+        onComplete: function() {
+          splash.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+    }
   }
 
 

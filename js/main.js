@@ -62,7 +62,7 @@
   var nav = document.getElementById('nav');
   if (nav) {
     window.lastScrollY = 0;
-    var darkSections = document.querySelectorAll('.story-carousel, .community, .footer, .cine-story, .page-hero.dark, .join-card.feature-dark');
+    var darkSections = document.querySelectorAll('.gsap-book-section, .story-carousel, .community, .footer, .cine-story, .page-hero.dark, .join-card.feature-dark');
     
     var navScroll = function () {
       var currentScrollY = window.scrollY;

@@ -2442,9 +2442,23 @@ body.splash-active {
     max-width: 100% !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
   }
   .contact-card {
     padding: 18px 22px !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    min-width: 0 !important;
+  }
+  .contact-card p {
+    font-size: 0.88rem !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+  .contact-info {
+    min-width: 0 !important;
+    gap: 16px !important;
   }
   .c-form input, .c-form select, .c-form textarea {
     padding: 14px 18px !important;

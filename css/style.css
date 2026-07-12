@@ -42,7 +42,7 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
 
 body {
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
@@ -1296,7 +1296,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 .cine-scene {
   position: absolute; inset: 0; z-index: 1;
   display: flex; align-items: center; justify-content: center;
-  gap: 60px; padding: 0 60px;
+  gap: 60px; padding: 0 60px 20vh !important;
   opacity: 0; visibility: hidden;
   perspective: 1200px;
   pointer-events: none;
@@ -1356,7 +1356,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
   .cine-scene { 
     flex-direction: column; 
     gap: 40px; 
-    padding: 120px 24px 40px; /* Pushed down a bit so it sits perfectly in viewport */
+    padding: 120px 24px 20vh !important; /* Pushed down a bit so it sits perfectly in viewport */
     text-align: center; 
   }
   .cine-content { max-width: 100%; }

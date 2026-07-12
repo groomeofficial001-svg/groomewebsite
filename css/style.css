@@ -2073,7 +2073,7 @@ body.splash-active {
 
 
 /* Contact Page Styles */
-.contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; max-width: 1000px; margin: 0 auto; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; max-width: 1000px; margin: 0 auto; }
 .contact-info { display: flex; flex-direction: column; gap: 20px; }
 .ci-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px; display: flex; gap: 20px; align-items: center; transition: background 0.3s ease; }
 .ci-card:hover { background: rgba(255,255,255,0.06); }
@@ -2097,7 +2097,7 @@ body.splash-active {
 .sel-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.4); pointer-events: none; width: 18px; height: 18px; }
 
 @media (max-width: 768px) {
-  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 30px; }
 }
 
 

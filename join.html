@@ -170,29 +170,29 @@
         <p class="lead" style="color:var(--ink-soft);">We'd love to hear from you</p>
       </div>
       
-      <div class="contact-container reveal d1" style="background: var(--dark-bg); border-radius: 30px; margin-top: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
+      <div class="contact-container reveal d1" style="background: var(--dark-bg); border-radius: clamp(16px, 4vw, 30px); margin-top: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
         
         <div class="contact-grid">
           
           <!-- Left Column: Info Cards -->
-          <div class="contact-info" style="display: flex; flex-direction: column; gap: 24px; justify-content: center;">
+          <div class="contact-info" style="display: flex; flex-direction: column; gap: clamp(10px, 2vw, 24px); justify-content: center;">
             
-            <div class="contact-card" style="background: var(--dark-card); padding: 25px 30px; border-radius: 20px; display: flex; align-items: center; gap: 20px; transition: transform 0.3s; cursor: pointer; border: 1px solid var(--dark-line);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-              <div style="background: rgba(192, 132, 252, 0.1); color: var(--primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <i data-lucide="mail" style="width: 22px; height: 22px;"></i>
+            <div class="contact-card" style="background: var(--dark-card); padding: clamp(14px, 3vw, 25px) clamp(14px, 3vw, 30px); border-radius: clamp(14px, 3vw, 20px); display: flex; align-items: center; gap: clamp(12px, 2.5vw, 20px); transition: transform 0.3s; cursor: pointer; border: 1px solid var(--dark-line);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+              <div style="background: rgba(192, 132, 252, 0.1); color: var(--primary); width: clamp(38px, 8vw, 50px); height: clamp(38px, 8vw, 50px); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <i data-lucide="mail" style="width: clamp(18px, 4vw, 22px); height: clamp(18px, 4vw, 22px);"></i>
               </div>
-              <div>
-                <h4 style="color:#fff; margin-bottom:4px; font-size: 1.1rem;">Email Us</h4>
-                <p style="color:var(--dark-ink-soft); margin-bottom:0; font-size: 0.95rem;">groomeofficial001@gmail.com</p>
+              <div style="min-width: 0;">
+                <h4 style="color:#fff; margin-bottom:4px; font-size: clamp(0.9rem, 2.5vw, 1.1rem);">Email Us</h4>
+                <p style="color:var(--dark-ink-soft); margin-bottom:0; font-size: clamp(0.8rem, 2.2vw, 0.95rem); overflow-wrap: break-word; word-break: break-word;">groomeofficial001@gmail.com</p>
               </div>
             </div>
             
-            <div class="contact-card" style="background: var(--dark-card); padding: 25px 30px; border-radius: 20px; display: flex; align-items: center; gap: 20px; transition: transform 0.3s; cursor: pointer; border: 1px solid var(--dark-line);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-              <div style="background: rgba(192, 132, 252, 0.1); color: var(--primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <i data-lucide="heart" style="width: 22px; height: 22px;"></i>
+            <div class="contact-card" style="background: var(--dark-card); padding: clamp(14px, 3vw, 25px) clamp(14px, 3vw, 30px); border-radius: clamp(14px, 3vw, 20px); display: flex; align-items: center; gap: clamp(12px, 2.5vw, 20px); transition: transform 0.3s; cursor: pointer; border: 1px solid var(--dark-line);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+              <div style="background: rgba(192, 132, 252, 0.1); color: var(--primary); width: clamp(38px, 8vw, 50px); height: clamp(38px, 8vw, 50px); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <i data-lucide="heart" style="width: clamp(18px, 4vw, 22px); height: clamp(18px, 4vw, 22px);"></i>
               </div>
               <div>
-                <h4 style="color:#fff; margin-bottom:4px; font-size: 1.1rem;">Follow Us</h4>
+                <h4 style="color:#fff; margin-bottom:4px; font-size: clamp(0.9rem, 2.5vw, 1.1rem);">Follow Us</h4>
                 <div style="display:flex; gap:15px; margin-top: 5px;">
                    <a href="https://www.instagram.com/groome.india/" target="_blank" style="color:var(--dark-ink-soft); transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--dark-ink-soft)'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
                    <a href="https://www.linkedin.com/company/groomeindia/posts/?feedView=all" target="_blank" style="color:var(--dark-ink-soft); transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--dark-ink-soft)'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
@@ -201,13 +201,13 @@
               </div>
             </div>
             
-            <div class="contact-card" style="background: var(--dark-card); padding: 25px 30px; border-radius: 20px; display: flex; align-items: center; gap: 20px; transition: transform 0.3s; cursor: pointer; border: 1px solid var(--dark-line);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-              <div style="background: rgba(192, 132, 252, 0.1); color: var(--primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <i data-lucide="map-pin" style="width: 22px; height: 22px;"></i>
+            <div class="contact-card" style="background: var(--dark-card); padding: clamp(14px, 3vw, 25px) clamp(14px, 3vw, 30px); border-radius: clamp(14px, 3vw, 20px); display: flex; align-items: center; gap: clamp(12px, 2.5vw, 20px); transition: transform 0.3s; cursor: pointer; border: 1px solid var(--dark-line);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+              <div style="background: rgba(192, 132, 252, 0.1); color: var(--primary); width: clamp(38px, 8vw, 50px); height: clamp(38px, 8vw, 50px); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <i data-lucide="map-pin" style="width: clamp(18px, 4vw, 22px); height: clamp(18px, 4vw, 22px);"></i>
               </div>
               <div>
-                <h4 style="color:#fff; margin-bottom:4px; font-size: 1.1rem;">Visit Us</h4>
-                <p style="color:var(--dark-ink-soft); margin-bottom:0; font-size: 0.95rem;">Chennai, Tamil Nadu, India</p>
+                <h4 style="color:#fff; margin-bottom:4px; font-size: clamp(0.9rem, 2.5vw, 1.1rem);">Visit Us</h4>
+                <p style="color:var(--dark-ink-soft); margin-bottom:0; font-size: clamp(0.8rem, 2.2vw, 0.95rem);">Chennai, Tamil Nadu, India</p>
               </div>
             </div>
             
@@ -215,21 +215,21 @@
           
           <!-- Right Column: Form -->
           <div class="contact-form-wrap" style="padding: 10px 0;">
-            <h3 style="color:#fff; margin-bottom: 30px; font-size: 1.8rem;">Send a Message</h3>
-            <form class="contact-form" data-form="Contact" style="display: flex; flex-direction: column; gap: 20px;">
-              <input type="text" name="user_name" placeholder="Your Name" required style="background: var(--dark-card); border: 1px solid var(--dark-line); color: #fff; padding: 16px 20px; border-radius: 12px; width: 100%; outline: none; font-family: inherit; font-size: 1rem; box-sizing: border-box; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--dark-line)'" />
+            <h3 style="color:#fff; margin-bottom: clamp(20px, 4vw, 30px); font-size: clamp(1.4rem, 4vw, 1.8rem);">Send a Message</h3>
+            <form class="contact-form" data-form="Contact" style="display: flex; flex-direction: column; gap: clamp(14px, 3vw, 20px);">
+              <input type="text" name="user_name" placeholder="Your Name" required style="background: var(--dark-card); border: 1px solid var(--dark-line); color: #fff; padding: clamp(12px, 3vw, 16px) clamp(14px, 3vw, 20px); border-radius: 12px; width: 100%; outline: none; font-family: inherit; font-size: clamp(0.9rem, 2.5vw, 1rem); box-sizing: border-box; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--dark-line)'" />
               
-              <input type="email" name="user_email" placeholder="Your Email" required style="background: var(--dark-card); border: 1px solid var(--dark-line); color: #fff; padding: 16px 20px; border-radius: 12px; width: 100%; outline: none; font-family: inherit; font-size: 1rem; box-sizing: border-box; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--dark-line)'" />
+              <input type="email" name="user_email" placeholder="Your Email" required style="background: var(--dark-card); border: 1px solid var(--dark-line); color: #fff; padding: clamp(12px, 3vw, 16px) clamp(14px, 3vw, 20px); border-radius: 12px; width: 100%; outline: none; font-family: inherit; font-size: clamp(0.9rem, 2.5vw, 1rem); box-sizing: border-box; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--dark-line)'" />
               
-              <select name="inquiry_type" style="background: var(--dark-card); border: 1px solid var(--dark-line); color: var(--dark-ink-soft); padding: 16px 20px; border-radius: 12px; width: 100%; outline: none; appearance: none; font-family: inherit; font-size: 1rem; box-sizing: border-box; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--dark-line)'">
+              <select name="inquiry_type" style="background: var(--dark-card); border: 1px solid var(--dark-line); color: var(--dark-ink-soft); padding: clamp(12px, 3vw, 16px) clamp(14px, 3vw, 20px); border-radius: 12px; width: 100%; outline: none; appearance: none; font-family: inherit; font-size: clamp(0.9rem, 2.5vw, 1rem); box-sizing: border-box; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--dark-line)'">
                 <option>General Inquiry</option>
                 <option>Partnership</option>
                 <option>Support</option>
               </select>
               
-              <textarea name="message" placeholder="How can we help?" rows="4" required style="background: var(--dark-card); border: 1px solid var(--dark-line); color: #fff; padding: 16px 20px; border-radius: 12px; width: 100%; outline: none; resize: none; font-family: inherit; font-size: 1rem; box-sizing: border-box; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--dark-line)'"></textarea>
+              <textarea name="message" placeholder="How can we help?" rows="4" required style="background: var(--dark-card); border: 1px solid var(--dark-line); color: #fff; padding: clamp(12px, 3vw, 16px) clamp(14px, 3vw, 20px); border-radius: 12px; width: 100%; outline: none; resize: none; font-family: inherit; font-size: clamp(0.9rem, 2.5vw, 1rem); box-sizing: border-box; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--dark-line)'"></textarea>
               
-              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; margin-top: 10px; border: none; cursor: pointer; box-sizing: border-box; background: var(--primary); color: #fff; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Send Message</button>
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: clamp(12px, 3vw, 16px); border-radius: 12px; font-weight: 700; font-size: clamp(0.95rem, 2.5vw, 1.1rem); margin-top: 10px; border: none; cursor: pointer; box-sizing: border-box; background: var(--primary); color: #fff; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Send Message</button>
             </form>
           </div>
           

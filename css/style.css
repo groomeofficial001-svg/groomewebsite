@@ -1286,8 +1286,8 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 .cine-story {
   position: relative; overflow: hidden;
   background: var(--dark-bg); color: var(--dark-ink);
-  height: 100vh !important; height: 100dvh !important; 
-  max-height: 100vh !important; max-height: 100dvh !important;
+  height: 120vh !important; 
+  max-height: 120vh !important; 
   width: 100%;
 }
 .cine-track {
@@ -1357,7 +1357,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
   .cine-scene { 
     flex-direction: column; 
     gap: 40px; 
-    padding: 120px 24px 20vh !important; /* Pushed down a bit so it sits perfectly in viewport */
+    padding: 120px 24px 20vh !important;
     text-align: center; 
   }
   .cine-content { max-width: 100%; }

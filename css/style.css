@@ -2418,26 +2418,25 @@ body.splash-active {
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
+    gap: 20px !important;
   }
   .contact-container {
-    padding: 30px 20px !important;
-    border-radius: 24px !important;
-    margin: 0 16px !important; /* Forces the card to be noticeably narrower and compact */
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08) !important;
+    padding: 28px 18px !important;
+    border-radius: 22px !important;
+    margin: 0 auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
   .contact-card {
-    padding: 16px 20px !important;
-    gap: 12px !important;
+    padding: 18px 22px !important;
   }
   .c-form input, .c-form select, .c-form textarea {
     padding: 14px 18px !important;
   }
   .c-form {
-    gap: 12px !important;
+    gap: 14px !important;
   }
-  .contact-info h4 { font-size: 1rem !important; }
-  .contact-info p { font-size: 0.85rem !important; }
 }
 
 /* --- Footer: compact on mobile --- */

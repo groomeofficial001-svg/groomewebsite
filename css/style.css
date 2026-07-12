@@ -1285,7 +1285,9 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 .cine-story {
   position: relative; overflow: hidden;
   background: var(--dark-bg); color: var(--dark-ink);
-  height: 100vh !important; height: 100dvh !important; width: 100%;
+  height: 100vh !important; height: 100dvh !important; 
+  max-height: 100vh !important; max-height: 100dvh !important;
+  width: 100%;
 }
 .cine-track {
   position: absolute; inset: 0;
@@ -1806,6 +1808,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 .gsap-book-container {
   width: 100vw;
   height: 100vh !important; height: 100dvh !important;
+  max-height: 100vh !important; max-height: 100dvh !important;
   max-width: 100vw;
   position: relative;
   perspective: 3500px;
@@ -1932,6 +1935,7 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
 @media (max-width: 900px) {
   .gsap-book-container {
     height: 100vh !important; height: 100dvh !important;
+    max-height: 100vh !important; max-height: 100dvh !important;
     width: 100vw;
   }
   .gsap-cover-left, .gsap-cover-right {

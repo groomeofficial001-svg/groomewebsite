@@ -2435,10 +2435,13 @@ body.splash-active {
   .contact-container {
     padding: 28px 18px !important;
     border-radius: 22px !important;
-    margin: 0 auto !important;
-    width: auto !important;
+    margin-top: 30px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
+    overflow: hidden !important;
   }
   .contact-card {
     padding: 18px 22px !important;

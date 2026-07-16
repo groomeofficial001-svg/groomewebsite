@@ -215,9 +215,14 @@
         trigger: section,
         start: "top top",
         end: "+=8000",
-        scrub: 1, // Smooth scrubbing
+        scrub: 0.5,
         pin: true,
-        anticipatePin: 1
+        anticipatePin: 1,
+        snap: {
+          snapTo: 1 / numLeaves,
+          duration: { min: 0.3, max: 0.6 },
+          ease: "power2.inOut"
+        }
       }
     });
 

@@ -226,17 +226,12 @@
 
     // Animate each leaf sequentially
     sortedLeaves.forEach(function(leaf, index) {
-      // The flip animation
+      // The flip animation — always horizontal like a real book
       var flipVars = {
+        rotateY: -180,
         ease: "none",
         duration: 1
       };
-      
-      if (isMobile) {
-        flipVars.rotateX = 180;
-      } else {
-        flipVars.rotateY = -180;
-      }
       
       tl.to(leaf, flipVars);
       // Swap z-index halfway through the flip so it stacks correctly on the left side

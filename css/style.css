@@ -1980,35 +1980,44 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
   background: linear-gradient(to left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 15%);
 }
 
-/* ======= MOBILE FLIPBOOK SLIDER (≤900px) ======= */
+/* ======= MOBILE FLIPBOOK — same book layout as desktop ======= */
 @media (max-width: 900px) {
+  .gsap-book-section {
+    overflow: hidden;
+  }
   .gsap-book-container {
-    height: 100vh !important; height: 100dvh !important;
-    max-height: 100vh !important; max-height: 100dvh !important;
-    width: 100vw;
+    height: 60vw !important;
+    max-height: 70vh !important;
+    min-height: 280px !important;
+    width: 96vw !important;
+    margin: 0 auto;
   }
+  .gsap-book {
+    perspective: 1800px;
+  }
+  /* Keep left/right side-by-side — just like desktop */
   .gsap-cover-left, .gsap-cover-right {
-    width: 100% !important;
-    height: 50% !important;
-    left: 0 !important;
-  }
-  .gsap-cover-left {
+    width: 50% !important;
+    height: 100% !important;
+    left: auto !important;
     top: 0 !important;
-    border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+    border: none !important;
   }
-  .gsap-cover-right {
-    top: 50% !important;
-    border-left: none !important;
-    border-top: 1px solid rgba(255,255,255,0.05) !important;
+  .gsap-cover-left { 
+    left: 0 !important; 
+    border-right: 1px solid rgba(255,255,255,0.05) !important; 
+  }
+  .gsap-cover-right { 
+    left: 50% !important; 
+    border-left: 1px solid rgba(255,255,255,0.05) !important; 
   }
   
   .gsap-leaf {
-    width: 100% !important;
-    height: 50% !important;
-    top: 50% !important;
-    left: 0 !important;
-    transform-origin: top center !important;
+    width: 50% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform-origin: left center !important;
   }
   
   .gsap-page-front, .gsap-page-back {
@@ -2019,21 +2028,35 @@ h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; }
   }
   
   .gsap-page-front {
-    transform: rotateX(0deg) !important;
-    border-left: none !important;
-    border-top: 1px solid rgba(255,255,255,0.05) !important;
+    transform: rotateY(0deg) !important;
+    border-left: 1px solid rgba(255,255,255,0.05) !important;
+    border-top: none !important;
   }
   
   .gsap-page-back {
-    transform: rotateX(180deg) !important;
-    border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+    transform: rotateY(180deg) !important;
+    border-right: 1px solid rgba(255,255,255,0.05) !important;
+    border-bottom: none !important;
   }
   
-  .text-page { padding: 1.5rem !important; justify-content: center !important; }
-  .text-page h2 { font-size: 1.8rem !important; margin-bottom: 0.5rem !important; }
-  .text-page p { font-size: 1.05rem !important; max-width: 100% !important; }
-  .text-page .eyebrow { font-size: 0.8rem !important; }
+  /* Scale down text to fit the smaller book pages */
+  .text-page { 
+    padding: clamp(1rem, 3vw, 2rem) clamp(0.8rem, 3vw, 1.5rem) !important; 
+    justify-content: center !important; 
+  }
+  .text-page h2 { 
+    font-size: clamp(1rem, 4vw, 1.8rem) !important; 
+    margin: 0.4rem 0 !important; 
+    line-height: 1.15 !important;
+  }
+  .text-page p { 
+    font-size: clamp(0.7rem, 2.5vw, 1rem) !important; 
+    max-width: 100% !important; 
+    line-height: 1.4 !important;
+  }
+  .text-page .eyebrow { 
+    font-size: clamp(0.55rem, 2vw, 0.8rem) !important; 
+  }
 }
 
 

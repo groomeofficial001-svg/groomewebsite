@@ -210,24 +210,8 @@
        leaf.style.zIndex = numLeaves - index; // 4, 3, 2, 1
     });
 
-    var tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: "+=8000",
-        scrub: 0.5,
-        pin: true,
-        anticipatePin: 1,
-        snap: {
-          snapTo: 1 / numLeaves,
-          duration: { min: 0.3, max: 0.6 },
-          ease: "power2.inOut"
-        }
-      }
-    });
-
-
-    var isMobile = window.innerWidth <= 900;
+    // We create the timeline but keep it PAUSED. The ScrollTrigger will animate its progress dynamically.
+    var tl = gsap.timeline({ paused: true });
 
     // Animate each leaf sequentially
     sortedLeaves.forEach(function(leaf, index) {
@@ -241,6 +225,31 @@
       tl.to(leaf, flipVars);
       // Swap z-index halfway through the flip so it stacks correctly on the left side
       tl.set(leaf, { zIndex: index + 1 }, "<0.5");
+    });
+    
+    // We calculate a comfortable scroll distance: 800px per page
+    var totalScroll = numLeaves * 800;
+
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top top",
+      end: "+=" + totalScroll,
+      pin: true,
+      anticipatePin: 1,
+      onUpdate: function(self) {
+        // Calculate the nearest full page (0, 1, 2... numLeaves)
+        var targetIndex = Math.round(self.progress * numLeaves);
+        var targetProgress = targetIndex / numLeaves;
+        
+        // Animate the timeline to that EXACT full page. 
+        // This ensures pages always flip completely and never pause halfway.
+        gsap.to(tl, { 
+          progress: targetProgress, 
+          duration: 0.8, 
+          ease: "power2.inOut", 
+          overwrite: "auto" 
+        });
+      }
     });
     
     // Auto-reload page if crossing the mobile breakpoint to prevent GSAP and CSS getting out of sync

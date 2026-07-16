@@ -227,8 +227,11 @@
       tl.set(leaf, { zIndex: index + 1 }, "<0.5");
     });
     
-    // We calculate a comfortable scroll distance: 800px per page
-    var totalScroll = numLeaves * 800;
+    // We calculate a comfortable scroll distance: 600px per page
+    var totalScroll = numLeaves * 600;
+    
+    // Track the current page so we don't spam animations
+    var currentIndex = -1;
 
     ScrollTrigger.create({
       trigger: section,
@@ -237,18 +240,25 @@
       pin: true,
       anticipatePin: 1,
       onUpdate: function(self) {
-        // Calculate the nearest full page (0, 1, 2... numLeaves)
-        var targetIndex = Math.round(self.progress * numLeaves);
-        var targetProgress = targetIndex / numLeaves;
+        // Calculate the nearest full page block (0, 1, 2... numLeaves)
+        // using Math.floor to create distinct physical "zones" for each page
+        var targetIndex = Math.floor(self.progress * numLeaves);
         
-        // Animate the timeline to that EXACT full page. 
-        // This ensures pages always flip completely and never pause halfway.
-        gsap.to(tl, { 
-          progress: targetProgress, 
-          duration: 0.8, 
-          ease: "power2.inOut", 
-          overwrite: "auto" 
-        });
+        // Safely cap at the max number of leaves
+        if (targetIndex >= numLeaves) targetIndex = numLeaves;
+        
+        // ONLY trigger a new animation if the page actually changed!
+        if (targetIndex !== currentIndex) {
+          currentIndex = targetIndex;
+          
+          // Animate the timeline to that EXACT full page. 
+          gsap.to(tl, { 
+            progress: currentIndex / numLeaves, 
+            duration: 0.7, 
+            ease: "power2.out", 
+            overwrite: "auto" 
+          });
+        }
       }
     });
     

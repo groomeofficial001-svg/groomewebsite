@@ -227,8 +227,10 @@
       tl.set(leaf, { zIndex: index + 1 }, "<0.5");
     });
     
-    // We calculate a comfortable scroll distance: 600px per page
-    var totalScroll = numLeaves * 600;
+    // We calculate a highly responsive scroll distance: 120px per page.
+    // A standard mouse wheel tick is ~100px, so this ensures EXACTLY 
+    // one comfortable scroll translates to one page turn!
+    var totalScroll = numLeaves * 120;
     
     // Track the current page so we don't spam animations
     var currentIndex = -1;
@@ -240,9 +242,9 @@
       pin: true,
       anticipatePin: 1,
       onUpdate: function(self) {
-        // Calculate the nearest full page block (0, 1, 2... numLeaves)
-        // using Math.floor to create distinct physical "zones" for each page
-        var targetIndex = Math.floor(self.progress * numLeaves);
+        // Use Math.round to create perfectly centered zones for each page.
+        // This ensures the page turns immediately when you cross the 50% mark of the small zone.
+        var targetIndex = Math.round(self.progress * numLeaves);
         
         // Safely cap at the max number of leaves
         if (targetIndex >= numLeaves) targetIndex = numLeaves;
@@ -254,7 +256,7 @@
           // Animate the timeline to that EXACT full page. 
           gsap.to(tl, { 
             progress: currentIndex / numLeaves, 
-            duration: 0.7, 
+            duration: 0.6, 
             ease: "power2.out", 
             overwrite: "auto" 
           });
